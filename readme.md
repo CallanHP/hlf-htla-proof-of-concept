@@ -1,0 +1,5 @@
+## Hashed Timelock Contract Sample for HLF ##
+
+This is simple proof-of-concept code for executing a HTLC across two channels in HLF. It is written in such a way as this chaincode can be running on both channels, with a client who has access to both serving to replay the proposal across channels, then replay the pre-image to confirm the proposal in the initial channel. This allows for Org A to perform confirmed operations with Org C, despite not sharing a channel. Instead they take advantage of Org B, which channels to both A and B.
+
+Much of the critical business process validation logic has been excluded, since the specific usecases will define the types of relationships that exist between A, B, and C; which will in turn define how proposals should be presented, identified, and validated. This simply shows a mechanism to implement hash-locked proposals across channels, with some utilities to allows for time-locking.
